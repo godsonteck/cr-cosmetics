@@ -14,6 +14,7 @@ export const BUSINESS = {
   whatsappUrl: 'https://wa.me/233592153306',
   email: 'crcosmetics.essential@gmail.com',
   location: 'Botwe, near Galaxy International School, Accra, Ghana',
+  googleMapsUrl: 'https://maps.app.goo.gl/3m9QQxQdi6tLc9Pd7',
   city: 'Accra',
   country: 'Ghana',
   currency: 'GHS',

@@ -8,14 +8,22 @@ export default function Footer() {
     <footer className="clean-footer">
       <div className="footer-container">
         <div className="footer-col brand-col">
-          <div className="brand-logo">
+          <div className="brand-logo-wrap">
+            <img src="/images/logo.jpeg" alt="CR Cosmetics & Essentials Logo" className="footer-logo-img" />
             <span className="brand-name">CR COSMETICS &amp; ESSENTIALS</span>
           </div>
           <p className="brand-desc">
             Your neighbourhood store in Botwe, Accra for verified skincare, body lotions, fragrant rice, and daily groceries.
           </p>
           <div className="store-meta">
-            <span>📍 Near Galaxy International School, Botwe, Accra</span>
+            <a
+              href="https://maps.app.goo.gl/3m9QQxQdi6tLc9Pd7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="location-link"
+            >
+              📍 Near Galaxy International School, Botwe, Accra (Google Maps) ↗
+            </a>
             <span>📞 +233 59 215 3306</span>
           </div>
         </div>
@@ -79,14 +87,25 @@ export default function Footer() {
           padding-bottom: 3rem;
         }
 
+        .brand-logo-wrap {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          margin-bottom: 0.75rem;
+        }
+        .footer-logo-img {
+          width: 48px;
+          height: 48px;
+          object-fit: cover;
+          border-radius: 50%;
+          border: 1px solid #E7E2DA;
+        }
         .brand-name {
           font-family: var(--font-display, serif);
-          font-size: 1.15rem;
+          font-size: 1.1rem;
           font-weight: 700;
           letter-spacing: 0.04em;
           color: #2D1820;
-          display: block;
-          margin-bottom: 0.75rem;
         }
         .brand-desc {
           font-size: 0.85rem;
@@ -98,10 +117,15 @@ export default function Footer() {
         .store-meta {
           display: flex;
           flex-direction: column;
-          gap: 4px;
+          gap: 6px;
           font-size: 0.8rem;
           color: #2D1820;
           font-weight: 500;
+        }
+        .location-link {
+          color: #7B2347;
+          text-decoration: underline;
+          font-weight: 600;
         }
 
         .col-heading {

@@ -54,6 +54,14 @@ export default function ContactPage() {
               <div>
                 <h3 className="cr-info-h">Store Location</h3>
                 <p className="cr-info-p">Near Galaxy International School, Botwe, Greater Accra, Ghana</p>
+                <a
+                  href="https://maps.app.goo.gl/3m9QQxQdi6tLc9Pd7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cr-contact-wa-link"
+                >
+                  View on Google Maps &rarr;
+                </a>
               </div>
             </div>
 

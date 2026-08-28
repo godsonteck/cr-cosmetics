@@ -354,9 +354,14 @@ export default function HomeClient({ allProducts = [], featuredProducts = [] }: 
             >
               💬 WhatsApp Order (059 215 3306)
             </a>
-            <Link href="/contact" className="btn btn-outline-white">
-              Location Map &amp; Info
-            </Link>
+            <a
+              href="https://maps.app.goo.gl/3m9QQxQdi6tLc9Pd7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-outline-white"
+            >
+              📍 Google Maps Location ↗
+            </a>
           </div>
         </div>
       </section>
