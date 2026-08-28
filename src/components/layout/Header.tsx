@@ -43,8 +43,11 @@ export default function Header() {
       <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
         <div className="header-container">
           <Link href="/" className="brand-logo">
-            <span className="brand-title">CR COSMETICS</span>
-            <span className="brand-tagline">&amp; ESSENTIALS</span>
+            <img src="/images/logo.jpeg" alt="CR Cosmetics & Essentials Logo" className="logo-img" />
+            <div className="brand-text-wrap">
+              <span className="brand-title">CR COSMETICS</span>
+              <span className="brand-tagline">&amp; ESSENTIALS</span>
+            </div>
           </Link>
 
           {/* Quick Search Bar Trigger */}
@@ -188,7 +191,7 @@ export default function Header() {
         .header-container {
           max-width: 1280px;
           margin: 0 auto;
-          height: 66px;
+          height: 70px;
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -199,13 +202,25 @@ export default function Header() {
         .brand-logo {
           text-decoration: none;
           display: flex;
+          align-items: center;
+          gap: 10px;
+          flex-shrink: 0;
+        }
+        .logo-img {
+          width: 44px;
+          height: 44px;
+          object-fit: cover;
+          border-radius: 50%;
+          border: 1px solid #E7E2DA;
+        }
+        .brand-text-wrap {
+          display: flex;
           flex-direction: column;
           line-height: 1;
-          flex-shrink: 0;
         }
         .brand-title {
           font-family: var(--font-display, serif);
-          font-size: 1.25rem;
+          font-size: 1.2rem;
           font-weight: 700;
           letter-spacing: 0.05em;
           color: #2D1820;
