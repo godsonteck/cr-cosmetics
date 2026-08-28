@@ -1,0 +1,21 @@
+import { getAllProducts, getFeaturedProducts } from '@/services/productService';
+import HomeClient from './HomeClient';
+
+async function getHomepageData() {
+  const [allProducts, featuredProducts] = await Promise.all([
+    getAllProducts(),
+    getFeaturedProducts(8),
+  ]);
+  return { allProducts, featuredProducts };
+}
+
+export default async function HomePage() {
+  const { allProducts, featuredProducts } = await getHomepageData();
+
+  return (
+    <HomeClient
+      allProducts={allProducts}
+      featuredProducts={featuredProducts}
+    />
+  );
+}
