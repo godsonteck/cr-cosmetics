@@ -4,7 +4,6 @@ import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import ProductCard from '@/components/product/ProductCard';
 import { Product } from '@/types';
-import { formatPrice } from '@/utils/formatPrice';
 
 interface HomeClientProps {
   allProducts: Product[];
@@ -28,7 +27,7 @@ export default function HomeClient({ allProducts = [], featuredProducts = [] }: 
       num: '01',
       title: 'CLEANSE',
       subtitle: 'Gentle Pure Clarifying',
-      desc: 'Remove impurities, oil and environmental buildup without stripping essential skin moisture.',
+      desc: 'Remove impurities, excess oil and daily environmental buildup without stripping essential barrier hydration.',
       tag: 'Cleansers & Washes',
       matchFilter: (p: Product) => p.tags?.some(t => t.includes('cleanser') || t.includes('wash') || t.includes('soap')),
     },
@@ -36,23 +35,23 @@ export default function HomeClient({ allProducts = [], featuredProducts = [] }: 
       num: '02',
       title: 'TREAT',
       subtitle: 'Targeted Radiance & Tone',
-      desc: 'Active Vitamin C, Niacinamide and Turmeric formulations targeting dark spots and natural glow.',
-      tag: 'Serums & Oils',
+      desc: 'Concentrated Niacinamide, Vitamin C and Turmeric formulations addressing hyperpigmentation and texture.',
+      tag: 'Serums & Actives',
       matchFilter: (p: Product) => p.tags?.some(t => t.includes('serum') || t.includes('oil') || t.includes('vitamin c') || t.includes('turmeric')),
     },
     {
       num: '03',
       title: 'HYDRATE',
-      subtitle: 'Deep Barrier Hydration',
-      desc: 'Hyaluronic acid and Norwegian formula creams locking in 24-hour hydration.',
+      subtitle: '24H Deep Moisture Barrier',
+      desc: 'Hyaluronic acid and rich moisturizing Norwegian formulas delivering long-lasting soft hydration.',
       tag: 'Face Creams & Lotions',
       matchFilter: (p: Product) => p.tags?.some(t => t.includes('moisturizer') || t.includes('lotion') || t.includes('cream') || t.includes('hyaluronic')),
     },
     {
       num: '04',
       title: 'PROTECT',
-      subtitle: 'SPF 50+ Sun & Daily Shield',
-      desc: 'Broad-spectrum dry-touch UV protection tailored for melanin-rich skin with zero white cast.',
+      subtitle: 'Broad Spectrum SPF 50+',
+      desc: 'Lightweight dry-touch UV protection specifically suited for melanin-rich skin with zero white cast.',
       tag: 'Sun Protection',
       matchFilter: (p: Product) => p.tags?.some(t => t.includes('sunscreen') || t.includes('spf') || t.includes('protection')),
     },
@@ -84,13 +83,13 @@ export default function HomeClient({ allProducts = [], featuredProducts = [] }: 
       <section className="hero-section">
         <div className="container hero-grid">
           <div className="hero-text">
-            <span className="hero-eyebrow">CR COSMETICS &amp; ESSENTIALS &bull; ACCRA, GHANA</span>
+            <span className="hero-eyebrow">CR COSMETICS &amp; ESSENTIALS &bull; BOTWE, ACCRA</span>
             <h1 className="hero-title">
               Verified Skincare.<br />
               Smart Everyday Essentials.
             </h1>
             <p className="hero-desc">
-              Your neighbourhood digital flagship in Botwe, Accra. Discover authentic cosmetics, radiant body care, and pantry staples under one cohesive brand.
+              Your neighborhood digital flagship in Accra. Discover authentic cosmetics, radiant body care, and grade-AAA pantry staples under one cohesive brand.
             </p>
             <div className="hero-btns">
               <Link href="/shop?category=skincare" className="btn btn-primary btn-lg">
@@ -109,8 +108,8 @@ export default function HomeClient({ allProducts = [], featuredProducts = [] }: 
               className="hero-image"
             />
             <div className="hero-badge-overlay">
-              <span className="overlay-tag">BOTWE FLAGSHIP</span>
-              <span className="overlay-sub">100% Verified Sourcing</span>
+              <span className="overlay-tag">BOTWE FLAGSHIP STORE</span>
+              <span className="overlay-sub">100% Authentic Distributor Sourcing</span>
             </div>
           </div>
         </div>
