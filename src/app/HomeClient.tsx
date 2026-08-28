@@ -28,7 +28,7 @@ export default function HomeClient({ allProducts = [], featuredProducts = [] }: 
       num: '01',
       title: 'CLEANSE',
       subtitle: 'Gentle Pure Clarifying',
-      desc: 'Remove impurities, oil and environmental buildup without stripping skin moisture.',
+      desc: 'Remove impurities, oil and environmental buildup without stripping essential skin moisture.',
       tag: 'Cleansers & Washes',
       matchFilter: (p: Product) => p.tags?.some(t => t.includes('cleanser') || t.includes('wash') || t.includes('soap')),
     },
@@ -36,14 +36,14 @@ export default function HomeClient({ allProducts = [], featuredProducts = [] }: 
       num: '02',
       title: 'TREAT',
       subtitle: 'Targeted Radiance & Tone',
-      desc: 'Active Vitamin C, Niacinamide and Turmeric solutions for dark spots and glow.',
+      desc: 'Active Vitamin C, Niacinamide and Turmeric formulations targeting dark spots and natural glow.',
       tag: 'Serums & Oils',
       matchFilter: (p: Product) => p.tags?.some(t => t.includes('serum') || t.includes('oil') || t.includes('vitamin c') || t.includes('turmeric')),
     },
     {
       num: '03',
       title: 'HYDRATE',
-      subtitle: 'Deep Moisture Barrier',
+      subtitle: 'Deep Barrier Hydration',
       desc: 'Hyaluronic acid and Norwegian formula creams locking in 24-hour hydration.',
       tag: 'Face Creams & Lotions',
       matchFilter: (p: Product) => p.tags?.some(t => t.includes('moisturizer') || t.includes('lotion') || t.includes('cream') || t.includes('hyaluronic')),
@@ -52,7 +52,7 @@ export default function HomeClient({ allProducts = [], featuredProducts = [] }: 
       num: '04',
       title: 'PROTECT',
       subtitle: 'SPF 50+ Sun & Daily Shield',
-      desc: 'Broad-spectrum dry-touch UV protection tailored with zero white cast.',
+      desc: 'Broad-spectrum dry-touch UV protection tailored for melanin-rich skin with zero white cast.',
       tag: 'Sun Protection',
       matchFilter: (p: Product) => p.tags?.some(t => t.includes('sunscreen') || t.includes('spf') || t.includes('protection')),
     },
@@ -64,6 +64,15 @@ export default function HomeClient({ allProducts = [], featuredProducts = [] }: 
     return matches.length > 0 ? matches.slice(0, 4) : allProducts.filter(p => p.category === 'skincare').slice(0, 4);
   }, [routineStep, allProducts]);
 
+  const categoryGridItems = [
+    { name: 'Face Care', category: 'skincare', subcategory: 'Face', image: '/images/products/1.jpeg', count: '8 Items' },
+    { name: 'Body Lotions', category: 'skincare', subcategory: 'Body', image: '/images/products/2.jpeg', count: '10 Items' },
+    { name: 'Jasmine Rice', category: 'groceries', subcategory: 'Pantry', image: '/images/products/jasmine-rice.jpg', count: 'Grade AAA' },
+    { name: 'Olive & Oils', category: 'groceries', subcategory: 'Pantry', image: '/images/products/olive-oil.jpg', count: '100% Pure' },
+    { name: 'Raw Shea Butter', category: 'groceries', subcategory: 'Household', image: '/images/products/shea-butter.jpg', count: 'Grade A' },
+    { name: 'Black Soap', category: 'groceries', subcategory: 'Household', image: '/images/products/black-soap.jpg', count: 'Authentic' },
+  ];
+
   const groceryHighlights = useMemo(() => {
     return allProducts.filter((p) => p.category === 'groceries').slice(0, 4);
   }, [allProducts]);
@@ -71,40 +80,25 @@ export default function HomeClient({ allProducts = [], featuredProducts = [] }: 
   return (
     <div className="home-page">
 
-      {/* ── 1. Editorial Campaign Hero ── */}
+      {/* 1. Editorial Campaign Hero */}
       <section className="hero-section">
         <div className="container hero-grid">
           <div className="hero-text">
-            <span className="hero-eyebrow">CR Cosmetics &amp; Essentials • Accra, Ghana</span>
+            <span className="hero-eyebrow">CR COSMETICS &amp; ESSENTIALS &bull; ACCRA, GHANA</span>
             <h1 className="hero-title">
-              Verified Beauty.<br />
+              Verified Skincare.<br />
               Smart Everyday Essentials.
             </h1>
             <p className="hero-desc">
-              Your neighbourhood digital flagship in Botwe, Accra. Discover authentic skincare, radiant body care, and pantry staples under one cohesive brand.
+              Your neighbourhood digital flagship in Botwe, Accra. Discover authentic cosmetics, radiant body care, and pantry staples under one cohesive brand.
             </p>
             <div className="hero-btns">
               <Link href="/shop?category=skincare" className="btn btn-primary btn-lg">
                 Explore Beauty World &rarr;
               </Link>
               <Link href="/shop?category=groceries" className="btn btn-outline btn-lg">
-                Shop Groceries &rarr;
+                Shop Essentials World &rarr;
               </Link>
-            </div>
-
-            <div className="hero-trust-bar">
-              <div className="trust-pill">
-                <span>📍</span>
-                <span>Botwe, Accra</span>
-              </div>
-              <div className="trust-pill">
-                <span>⚡</span>
-                <span>Same-Day Accra Delivery</span>
-              </div>
-              <div className="trust-pill">
-                <span>✨</span>
-                <span>100% Genuine Guaranteed</span>
-              </div>
             </div>
           </div>
 
@@ -116,18 +110,78 @@ export default function HomeClient({ allProducts = [], featuredProducts = [] }: 
             />
             <div className="hero-badge-overlay">
               <span className="overlay-tag">BOTWE FLAGSHIP</span>
-              <span className="overlay-sub">Authentic Retail</span>
+              <span className="overlay-sub">100% Verified Sourcing</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── 2. Two Shopping Worlds Banners ── */}
+      {/* 2. Value Proposition Strip */}
+      <div className="value-strip">
+        <div className="container value-grid">
+          <div className="value-item">
+            <span className="value-icon">✨</span>
+            <div>
+              <strong>100% Verified Sourcing</strong>
+              <p>Direct from official brand distributors</p>
+            </div>
+          </div>
+          <div className="value-item">
+            <span className="value-icon">🚚</span>
+            <div>
+              <strong>Same-Day Accra Dispatch</strong>
+              <p>Express doorstep delivery in Greater Accra</p>
+            </div>
+          </div>
+          <div className="value-item">
+            <span className="value-icon">💳</span>
+            <div>
+              <strong>Flexible MoMo &amp; Cash</strong>
+              <p>MTN, Telecel, AT Money, Card, COD</p>
+            </div>
+          </div>
+          <div className="value-item">
+            <span className="value-icon">🏬</span>
+            <div>
+              <strong>Local Botwe Storefront</strong>
+              <p>Near Galaxy Int. School for pickup</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 3. Visual Category Tiles Grid */}
+      <section className="categories-tile-section">
+        <div className="container">
+          <div className="section-head-center">
+            <span className="section-eyebrow">Explore Collections</span>
+            <h2 className="section-title">Shop by Category</h2>
+          </div>
+
+          <div className="tiles-grid">
+            {categoryGridItems.map((item, idx) => (
+              <Link
+                key={idx}
+                href={`/shop?category=${item.category}&subcategory=${item.subcategory}`}
+                className="category-tile-card"
+              >
+                <div className="tile-img-box">
+                  <img src={item.image} alt={item.name} />
+                </div>
+                <strong className="tile-title">{item.name}</strong>
+                <span className="tile-count">{item.count}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Two Shopping Worlds Banners */}
       <section className="departments-section">
         <div className="container">
           <div className="section-head-center">
-            <span className="section-eyebrow">One Brand • Two Shopping Worlds</span>
-            <h2 className="section-title">Designed for Your Lifestyle &amp; Home</h2>
+            <span className="section-eyebrow">One Brand &bull; Two Shopping Worlds</span>
+            <h2 className="section-title">Designed for Your Beauty &amp; Home</h2>
           </div>
 
           <div className="dept-grid">
@@ -136,8 +190,8 @@ export default function HomeClient({ allProducts = [], featuredProducts = [] }: 
                 <img src="/images/categories/skincare.jpg" alt="Beauty and Skincare World" />
               </div>
               <div className="dept-content">
-                <span className="world-tag">WORLD 01</span>
-                <h2>Skincare &amp; Radiant Beauty</h2>
+                <span className="world-tag">WORLD 01 &bull; BEAUTY</span>
+                <h2>Skincare &amp; Radiant Body Care</h2>
                 <p>Neutrogena Hydro Boost, Olay Niacinamide, Medix 5.5, and K-Beauty formulations for glowing melanin-rich skin.</p>
                 <Link href="/shop?category=skincare" className="btn btn-primary btn-sm">
                   Shop Beauty World &rarr;
@@ -150,7 +204,7 @@ export default function HomeClient({ allProducts = [], featuredProducts = [] }: 
                 <img src="/images/categories/groceries.jpg" alt="Groceries and Essentials World" />
               </div>
               <div className="dept-content">
-                <span className="world-tag">WORLD 02</span>
+                <span className="world-tag">WORLD 02 &bull; ESSENTIALS</span>
                 <h2>Groceries &amp; Everyday Essentials</h2>
                 <p>Royal Fragrant Jasmine Rice, extra virgin cold-pressed olive oil, pure raw honey &amp; unrefined Ghanaian shea butter.</p>
                 <Link href="/shop?category=groceries" className="btn btn-secondary btn-sm">
@@ -162,13 +216,13 @@ export default function HomeClient({ allProducts = [], featuredProducts = [] }: 
         </div>
       </section>
 
-      {/* ── 3. Signature Feature: Skincare Routine Showcase ── */}
+      {/* 5. Signature Skincare Routine Feature */}
       <section className="routine-section">
         <div className="container">
           <div className="section-head">
             <div>
-              <span className="section-eyebrow">Signature CR Experience</span>
-              <h2 className="section-title">The 4-Step Skincare Routine</h2>
+              <span className="section-eyebrow">Signature CR Routine</span>
+              <h2 className="section-title">The 4-Step Skincare Regimen</h2>
             </div>
             <p className="section-sub">
               Dermatologist-aligned skincare steps mapped with verified products available in store.
@@ -205,7 +259,7 @@ export default function HomeClient({ allProducts = [], featuredProducts = [] }: 
         </div>
       </section>
 
-      {/* ── 4. Everyday Essentials & Pantry Highlight ── */}
+      {/* 6. Everyday Essentials Pantry Highlight */}
       <section className="essentials-highlight-section">
         <div className="container">
           <div className="essentials-box">
@@ -229,7 +283,7 @@ export default function HomeClient({ allProducts = [], featuredProducts = [] }: 
         </div>
       </section>
 
-      {/* ── 5. Curated Bestsellers & New Arrivals ── */}
+      {/* 7. Curated Bestsellers & Special Offers */}
       <section className="featured-section">
         <div className="container">
           <div className="section-head">
@@ -284,13 +338,13 @@ export default function HomeClient({ allProducts = [], featuredProducts = [] }: 
         </div>
       </section>
 
-      {/* ── 6. Local Botwe Store & WhatsApp Order Banner ── */}
+      {/* 8. Botwe Storefront & Direct WhatsApp Order */}
       <section className="contact-strip">
         <div className="container contact-box">
           <div>
             <span className="contact-eyebrow">ACCRA STORE &amp; DELIVERY</span>
             <h3>Visit Us in Botwe or Order Direct on WhatsApp</h3>
-            <p>Location: Near Galaxy International School, Botwe, Accra &bull; Mon–Sat 9:00 AM – 8:00 PM</p>
+            <p>Location: Near Galaxy International School, Botwe, Accra &bull; Mon–Sat 8:00 AM – 8:00 PM</p>
           </div>
           <div className="contact-actions">
             <a
@@ -314,7 +368,7 @@ export default function HomeClient({ allProducts = [], featuredProducts = [] }: 
           color: #1C1917;
         }
 
-        /* ── Hero ── */
+        /* Hero */
         .hero-section {
           padding: 3.5rem 0 4.5rem;
           background: #F3EFEA;
@@ -355,23 +409,6 @@ export default function HomeClient({ allProducts = [], featuredProducts = [] }: 
           display: flex;
           gap: 1rem;
           flex-wrap: wrap;
-          margin-bottom: 2rem;
-        }
-
-        .hero-trust-bar {
-          display: flex;
-          gap: 1.25rem;
-          flex-wrap: wrap;
-          padding-top: 1.5rem;
-          border-top: 1px solid #E7E2DA;
-        }
-        .trust-pill {
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          font-size: 0.78rem;
-          font-weight: 600;
-          color: #2D1820;
         }
 
         .hero-image-wrap {
@@ -410,9 +447,89 @@ export default function HomeClient({ allProducts = [], featuredProducts = [] }: 
           font-weight: 600;
         }
 
-        /* ── Departments ── */
+        /* Value Strip */
+        .value-strip {
+          background: #FFFFFF;
+          border-bottom: 1px solid #E7E2DA;
+          padding: 1.5rem 0;
+        }
+        .value-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 1.5rem;
+        }
+        .value-item {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+        .value-icon {
+          font-size: 1.5rem;
+        }
+        .value-item strong {
+          display: block;
+          font-size: 0.82rem;
+          font-weight: 700;
+          color: #2D1820;
+        }
+        .value-item p {
+          font-size: 0.75rem;
+          color: #57534E;
+          margin: 0;
+        }
+
+        /* Categories Tiles */
+        .categories-tile-section {
+          padding: 4rem 0 2rem;
+        }
+        .tiles-grid {
+          display: grid;
+          grid-template-columns: repeat(6, 1fr);
+          gap: 1.25rem;
+        }
+        .category-tile-card {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-decoration: none;
+          text-align: center;
+          background: #FFFFFF;
+          border: 1px solid #E7E2DA;
+          border-radius: 12px;
+          padding: 1rem 0.5rem;
+          transition: transform 0.2s, border-color 0.2s;
+        }
+        .category-tile-card:hover {
+          transform: translateY(-4px);
+          border-color: #7B2347;
+        }
+        .tile-img-box {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          overflow: hidden;
+          background: #FAF7F2;
+          margin-bottom: 0.75rem;
+        }
+        .tile-img-box img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .tile-title {
+          font-size: 0.85rem;
+          font-weight: 700;
+          color: #2D1820;
+        }
+        .tile-count {
+          font-size: 0.72rem;
+          color: #8C8580;
+          margin-top: 2px;
+        }
+
+        /* Departments */
         .departments-section {
-          padding: 4.5rem 0 3.5rem;
+          padding: 3.5rem 0;
         }
         .section-head-center {
           text-align: center;
@@ -490,7 +607,7 @@ export default function HomeClient({ allProducts = [], featuredProducts = [] }: 
           line-height: 1.55;
         }
 
-        /* ── Routine Section ── */
+        /* Routine Section */
         .routine-section {
           padding: 3.5rem 0 4.5rem;
           background: #F3EFEA;
@@ -581,7 +698,7 @@ export default function HomeClient({ allProducts = [], featuredProducts = [] }: 
           gap: 1.25rem;
         }
 
-        /* ── Essentials Highlight Box ── */
+        /* Essentials Highlight */
         .essentials-highlight-section {
           padding: 4.5rem 0;
         }
@@ -622,10 +739,6 @@ export default function HomeClient({ allProducts = [], featuredProducts = [] }: 
           border: 1.5px solid rgba(255, 255, 255, 0.3);
           color: #FFFFFF;
         }
-        .btn-outline-white:hover {
-          border-color: #FFFFFF;
-          background: rgba(255, 255, 255, 0.1);
-        }
 
         .essentials-grid {
           display: grid;
@@ -633,7 +746,7 @@ export default function HomeClient({ allProducts = [], featuredProducts = [] }: 
           gap: 1.25rem;
         }
 
-        /* ── Featured Products ── */
+        /* Featured */
         .featured-section {
           padding: 3.5rem 0 5rem;
         }
@@ -669,7 +782,7 @@ export default function HomeClient({ allProducts = [], featuredProducts = [] }: 
           text-align: center;
         }
 
-        /* ── Contact Strip ── */
+        /* Contact Strip */
         .contact-strip {
           padding: 0 0 4.5rem;
         }
@@ -712,13 +825,11 @@ export default function HomeClient({ allProducts = [], featuredProducts = [] }: 
           background: #25D366;
           color: #FFFFFF;
         }
-        .btn-whatsapp:hover {
-          background: #1EBE5B;
-        }
 
-        /* ── Responsive ── */
         @media (max-width: 960px) {
           .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+          .value-grid { grid-template-columns: repeat(2, 1fr); }
+          .tiles-grid { grid-template-columns: repeat(3, 1fr); }
           .dept-grid { grid-template-columns: 1fr; }
           .routine-nav { grid-template-columns: repeat(2, 1fr); }
           .routine-products-grid { grid-template-columns: repeat(2, 1fr); }
@@ -727,10 +838,11 @@ export default function HomeClient({ allProducts = [], featuredProducts = [] }: 
         }
 
         @media (max-width: 500px) {
+          .value-grid { grid-template-columns: 1fr; }
+          .tiles-grid { grid-template-columns: repeat(2, 1fr); }
           .products-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
           .routine-nav { grid-template-columns: 1fr; }
           .essentials-grid { grid-template-columns: 1fr; }
-          .contact-box { padding: 1.5rem; }
         }
       `}</style>
     </div>
